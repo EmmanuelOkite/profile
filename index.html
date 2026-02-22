@@ -10,8 +10,7 @@
     <meta content="" name="keywords">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hALEwIH" crossorigin="anonymous">
 
     <!-- Favicons -->
     <link href="./static/assets/img/favicon.png" rel="icon">
@@ -45,6 +44,126 @@
             margin-left: 30%;
             padding: 30px;
         }
+
+        /* ===== DARK MODE STYLES ===== */
+        body.dark-mode {
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        body.dark-mode .header,
+        body.dark-mode .section-bg,
+        body.dark-mode .about,
+        body.dark-mode .contact,
+        body.dark-mode .why-us,
+        body.dark-mode footer {
+            background-color: #1e1e1e !important;
+        }
+
+        body.dark-mode .icon-box {
+            background-color: #2a2a2a;
+        }
+
+        body.dark-mode .form-control {
+            background-color: #2a2a2a;
+            color: white;
+            border-color: #444;
+        }
+
+        body.dark-mode a {
+            color: #ffb6c1;
+        }
+
+        .theme-toggle {
+            cursor: pointer;
+            font-size: 22px;
+            margin-left: 15px;
+        }
+
+        /* Skills Section */
+.skills-section {
+  padding: 20px 0px;
+  background: transparent;
+  color: #fff;
+  text-align: center;
+}
+
+.skills-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+}
+
+/* Grid Layout */
+.skills-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(90px,1fr));
+  gap:12px;
+}
+
+/* Skill Cards */
+.skill-card{
+  padding:10px;
+}
+
+/* Icon */
+.skill-card img {
+  width: 55px;
+  height: 55px;
+  margin-bottom: 15px;
+  filter: brightness(1.2);
+}
+
+/* Text */
+.skill-card p {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Hover Effect */
+.skill-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(255, 0, 128, 0.3);
+  border-color: #ff0080;
+}
+
+/* Active Card (like Vite in screenshot) */
+.skill-card.active {
+  border: 2px solid #ff0080;
+  box-shadow: 0 0 20px rgba(255, 0, 128, 0.6);
+}
+
+#about{
+  min-height:100vh;          /* full screen height */
+  display:flex;
+  align-items:center;        /* vertical centering */
+  padding:40px 0;            /* reduce huge spacing */
+}
+
+#about .section-header{
+  margin-bottom:20px;
+}
+
+#about h3{
+  margin-bottom:10px;
+}
+
+#about p{
+  margin-bottom:8px;
+}
+
+#about ul{
+  margin-bottom:0;
+}
+
+.about-photo{
+  max-width:180px;
+}
+
+#about .content{
+  font-size:15px;
+  line-height:1.5;
+}
+
     </style>
 </head>
 
@@ -55,9 +174,7 @@
         <div class="container d-flex align-items-center justify-content-between">
 
             <a href="index.html" class="logo d-flex align-items-center me-auto me-lg-0">
-
                 <h1>&lt;Emmanuel Okite /&gt;</h1>
-
             </a>
 
             <nav id="navbar" class="navbar">
@@ -68,14 +185,19 @@
                     <li><a href="#contact">Contact</a></li>
                     <li><a href="#hireme">Hire me</a></li>
                 </ul>
-            </nav><!-- .navbar -->
+            </nav>
 
-            <!-- <a class="btn-book-a-table" href="#book-a-table">Details</a> -->
+            <!-- 🌙 Dark Mode Toggle Button -->
+            <i class="bi bi-moon-fill theme-toggle" id="themeToggle"></i>
+
             <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
             <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
 
         </div>
-    </header><!-- End Header -->
+    </header>
+
+    <!-- ======= REST OF YOUR ORIGINAL HTML REMAINS EXACTLY THE SAME ======= -->
+<!-- End Header -->
 
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="hero d-flex align-items-center section-bg">
@@ -83,8 +205,8 @@
             <div class="row justify-content-between gy-5">
                 <div
                     class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start">
-                    <h2 data-aos="fade-up">Step Into My <br>World of Tech</h2>
-                    <p data-aos="fade-up" data-aos-delay="100">Welcome to my digital space. Dive into the experiences, skills, and projects that define my growth in the world of technology.</p>
+                    <h2 data-aos="fade-up">Hi, I'm Emmanuel Okite<br>A Fullstack Developer</h2>
+                    <p data-aos="fade-up" data-aos-delay="100">I am a dedicated Software Developer focused on building efficient, scalable, and user-centered web applications. With strong experience in Django and modern frontend technologies, I enjoy transforming ideas into functional digital solutions that improve business operations.</p>
                         <div class>
     <a href="https://docs.google.com/document/d/1Fmadhn0Lfq8ThPdFm06G292UmxFcqWWs/edit?usp=sharing&ouid=109541243572314243844&rtpof=true&sd=true" 
        class="btn btn-primary" 
@@ -96,7 +218,7 @@
 
                 </div>
                 <div class="col-lg-5 order-1 order-lg-2 text-center text-lg-start">
-                    <img src="./images/emma.jpg" class="img-fluid rounded-circle" alt="" data-aos="zoom-out"
+                    <img src="./images/emmaokite.jpeg" class="img-fluid rounded-circle" alt="" data-aos="zoom-out"
                         data-aos-delay="200" height="100" width="300">
                 </div>
             </div>
@@ -106,58 +228,158 @@
     <main id="main">
 
         <!-- ======= About Section ======= -->
-        <section id="about" class="about">
-            <div class="container" data-aos="fade-up">
+        <!-- ======= About Section ======= -->
+<section id="about" class="about">
+    <div class="container" data-aos="fade-up">
 
-                <div class="section-header">
-                    <h2>About Me</h2>
-                    <p>Discover deeper insights <span>into my background</span>.</p>
+        <div class="section-header">
+            <h2>About Me</h2>
+            <p>Discover deeper insights <span>into my background</span>.</p>
+        </div>
+
+        <!-- Row Start -->
+        <div class="row gy-4 align-items-start">
+
+            <!-- Image Column -->
+            <div class="col-lg-4 text-center">
+                <img src="./images/emmaokite.jpeg"
+                     class="img-fluid rounded-circle about-photo"
+                     alt="Profile Image"
+                     data-aos="fade-up"
+                     data-aos-delay="100"
+                     style="max-width:220px;">
+            </div>
+
+            <!-- Content + Skills Column -->
+            <div class="col-lg-8" data-aos="fade-up" data-aos-delay="300">
+
+                <div class="content ps-0 ps-lg-5">
+
+                    <h3>WHO I AM</h3>
+
+                    <p>
+                        <i class="bi bi-check2-all"></i>
+                        I am a dedicated Software Developer focused on building efficient,
+                        scalable, and user-centered web applications.
+                    </p>
+
+                    <p>
+                        <i class="bi bi-check2-all"></i>
+                        Additionally, I hold a Uganda Advanced Certificate of
+                        Education (UACE) from Mentor Secondary School, Lira City.
+                    </p>
+
+                    <h5 class="text-center"
+                        style="font-family: 'Times New Roman', Times, serif; text-decoration: underline;">
+                        MY TECHNICAL SKILLS
+                    </h5>
+
+                    <!-- Skills Section -->
+                    <section class="skills-section" id="skills">
+
+                        <!-- <h2>Technical Skills</h2> -->
+
+                        <div class="skills-grid">
+
+                            <div class="skill-card">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg">
+                                <p>Python</p>
+                            </div>
+
+                            <div class="skill-card">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg">
+                                <p>Django</p>
+                            </div>
+
+                            <div class="skill-card">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nestjs/nestjs-original.svg">
+                                <p>NestJS</p>
+                            </div>
+
+                            <div class="skill-card">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg">
+                                <p>HTML</p>
+                            </div>
+
+                            <div class="skill-card">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg">
+                                <p>React.js</p>
+                            </div>
+
+                            <div class="skill-card">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg">
+                                <p>CSS</p>
+                            </div>
+
+                            <!-- <div class="skill-card">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg">
+                                <p>Django</p>
+                            </div> -->
+
+                            <!-- <div class="skill-card">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nestjs/nestjs-original.svg">
+                                <p>NestJS</p>
+                            </div> -->
+
+                            <div class="skill-card">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vitejs/vitejs-original.svg">
+                                <p>Vite</p>
+                            </div>
+
+                            <!-- <div class="skill-card">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg">
+                                <p>Jupyter</p>
+                            </div> -->
+
+                            <!-- <div class="skill-card">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg">
+                                <p>NumPy</p>
+                            </div> -->
+
+                            <!-- <div class="skill-card">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg">
+                                <p>Pandas</p>
+                            </div> -->
+
+                        </div>
+
+                    </section>
+
+                    <h5 class="text-center"
+                        style="font-family: 'Times New Roman', Times, serif; text-decoration: underline;">
+                        MY SOFT SKILLS
+                    </h5>
+
+                    <ul>
+                        <li><i class="bi bi-check2-all"></i> Paying attention to details</li>
+                        <li><i class="bi bi-check2-all"></i> Time management</li>
+                        <li><i class="bi bi-check2-all"></i> Problem-solving</li>
+                        <li><i class="bi bi-check2-all"></i> Teamwork</li>
+                        <li><i class="bi bi-check2-all"></i> Communication</li>
+                    </ul>
+
                 </div>
 
-                <div class="row gy-4">
-                    <div class="col-lg-7 position-relative about-img"
-                        style="background-image: url(./images/okite.jpg) ; background-size: cover;" data-aos="fade-up"
-                        data-aos-delay="150">
+            </div>
 
-                    </div>
-                    <div class="col-lg-5 d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">
-                        <div class="content ps-0 ps-lg-5">
-                            <h3>WHO I AM</h3>
-                            <p><i class="bi bi-check2-all"></i> I'm Emmanuel Okite, a Software Engineer with
-                                proficiency in various technologies, Studied at Refactory Academy while pursuing a
-                                certificate in Software Engineering with python and Data Science Track.</p>
+        </div>
+        <!-- Row End -->
 
-                            <p><i class="bi bi-check2-all"></i>Additionally, I hold a Uganda Advanced Certificate of
-                                Education (UACE) from Mentor Secondary School, Lira City.
-                            </p>
+    </div>
+</section>
+<!-- End About Section -->
 
-                            <h5 class="text-center"
+
+                            <!-- <h5 class="text-center"
                                 style="font-family: 'Times New Roman', Times, serif; text-decoration: underline;">MY
-                                TECHNICAL SKILLS</h5>
-
-                            <ul>
-                                <!-- <li><i class="bi bi-check2-all"></i> <strong> Networking and Infrastructure:</strong> ERP, VoIP, Active directory, Jira for SLA, Intune, Microsoft Office 365, Router configuration.
-                                </li> -->
-                                <li><i class="bi bi-check2-all"></i> <strong> Languages:</strong> Python</li>
-                                <li><i class="bi bi-check2-all"></i> <strong> Web Development:</strong> Django,NestJS,React JS, HTML/CSS
-                                </li>
-                                <li><i class="bi bi-check2-all"></i> <strong>Database Management:</strong> SQLite, MySQL, PostgreSQL, DBeaver,MongoDB</li>
-                                <li><i class="bi bi-check2-all"></i> <strong>Version Control:</strong> Git, GitHub,
-                                    GitLab</li>
-                                <li><i class="bi bi-check2-all"></i> <strong>Development Tools:</strong> VS Code,Jupyter Notebook</li>
-                            </ul>
-
-
-                            <h5 class="text-center"
-                                style="font-family: 'Times New Roman', Times, serif; text-decoration: underline;">MY
-                                SOFT SKILLS</h5>
-                            <ul>
+                                SOFT SKILLS</h5> -->
+                            <!-- <ul>
                                 <li><i class="bi bi-check2-all"></i>Paying attention to details</li>
                                 <li><i class="bi bi-check2-all"></i>Time management and prioritization</li>
                                 <li><i class="bi bi-check2-all"></i>Problem-solving skills</li>
                                 <li><i class="bi bi-check2-all"></i>Teamwork and collaboration</li>
                                 <li><i class="bi bi-check2-all"></i>Communication skills</li>
-                            </ul>
+                            </ul> -->
 
                         </div>
                     </div>
@@ -166,66 +388,77 @@
             </div>
         </section><!-- End About Section -->
 
-        <section id="why-us" class="why-us section-bg">
-            <div class="container" data-aos="fade-up">
-                <h2 class="text-center">MY PROJECTS</h2>
-                <div class="row gy-4 justify-content-center"> <!-- Centering the content -->
+        <section id="why-us" class="projects-modern">
+  <div class="container">
 
-                    <div class="col-lg-8">
-                        <div class="row gy-4">
-                            <!-- <div class="col-xl-4" data-aos="fade-up" data-aos-delay="200">
-                                <div class="icon-box d-flex flex-column justify-content-center align-items-center">
-                                    <i class="bi bi-clipboard-data"></i>
-                                    <h4 style="color: #ec2727;">E-commerce website</h4>
-                                    <p>I developed a website using wordpress as a component of content management system</p>
-                                </div>
-                            </div>
+    <div class="row align-items-center">
 
-                            <!-- Font Awesome CDN for the running icon -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+      <!-- LEFT IMAGE -->
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <div class="project-image">
+          <img src="./images/Screenshot 2026-02-22 122322.png" class="img-fluid rounded" alt="ONIMS Dashboard">
+        </div>
+      </div>
 
-<div class="col-xl-4" data-aos="fade-up" data-aos-delay="400">
-    <div class="icon-box d-flex flex-column justify-content-center align-items-center">
-        <!-- Running person icon -->
-        <i class="fa-solid fa-person-running" style="font-size:40px;"></i>
+      <!-- RIGHT CONTENT -->
+      <div class="col-lg-6">
 
-        <h4>
-            <a href="https://github.com/OneSpan-Consults-Limited/api">
-                Race Registration and Management Information System
-            </a>
-        </h4>
+        <p class="project-tag">KARIBU GROCERY LIMITED</p>
 
-        <p>I developed a Streamlined marathon event operations by digitizing registration, payments, communications, and stakeholder coordination</p>
+        <h2 class="project-title">
+          Karibu Groceries<br>
+          Limited (KGL)
+        </h2>
+
+        <p class="project-desc">
+          Grocery Sales & Management Information System (GSMIS) is a scalable platform that streamlines grocery business operations from daily sales tracking to financial reporting. It integrates sales management, expense tracking, inventory monitoring, and loss control in one centralized system. Store owners can manage multiple products, monitor stock levels in real time, track profit margins, and generate automated reports for better decision-making. The platform supports role-based access, transaction history, and performance insights to improve accountability and efficiency.
+        </p>
+
+        <a href="https://github.com/EmmanuelOkite/KGL-Groceries" class="project-btn">
+          ↗
+        </a>
+
+      </div>
+
     </div>
-</div>
+    <div class="row align-items-center">
 
+      <!-- LEFT IMAGE -->
+      <div class="col-lg-6">
 
-                            <div class="col-xl-4" data-aos="fade-up" data-aos-delay="400">
-                                <div class="icon-box d-flex flex-column justify-content-center align-items-center">
-                                    <i class="bi bi-inboxes"></i>
-                                    <h4> <a href = "https://github.com/EmmanuelOkite/KGL-Groceries">Karibu Grocery App</a></h4>
-                                    <p>I  developed a sales management web app for a grocery to help them manage the sales and expenses while calculating the profits earned.</p>
-                                </div>
-                            </div>
-                        
+        <p class="project-tag">ONESPAN CONSULTS LIMITED</p>
 
-                            <div class="col-xl-4" data-aos="fade-up" data-aos-delay="400">
-                                <div class="icon-box d-flex flex-column justify-content-center align-items-center">
-                                    <i class="bi bi-inboxes"></i>
-                                    
-                                    <h4><a href="https://github.com/EmmanuelOkite/primegrocers">Sales Management</a></h4>
-                                    <p>I worked on a web application for a grocery to help them be able to reach out to the people. </p>
-                                </div>
-                            </div>
-                           
+        <h2 class="project-title">
+          Race Registration and<br>
+          Management Information System (RMIS)
+        </h2>
 
-                        </div>
-                    </div>
+        <p class="project-desc">
+          The Race Registration & Management Information System (RMIS) is a scalable platform that streamlines running event management from registration to post-race services. It integrates participant registration, payments, bib assignment, QR e-tickets, live results, and automated finisher certificates. Organizers can manage multiple events with custom branding, role-based access, and bulk communications. Participants access dashboards, photos, and race information in real time. The system reduces manual work, improves efficiency, and enhances the overall experience for organizers and runners.
 
-                </div>
+        <a href="https://github.com/OneSpan-Consults-Limited/api" class="project-btn">
+          ↗
+        </a>
 
-            </div>
-        </section><!-- Projects Section -->
+      </div>
+      <!-- <div class="col-lg-6 mb-4 mb-lg-0">
+        <div class="project-image">
+          <img src="./images/onims-dashboard.png" class="img-fluid rounded" alt="ONIMS Dashboard">
+        </div>
+      </div> -->
+
+      <!-- RIGHT CONTENT -->
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <div class="project-image">
+          <img src="./images/Screenshot 2026-02-16 132648.png" class="img-fluid rounded" alt="RMIS Dashboard">
+        </div>
+      </div> 
+
+    </div>
+
+  </div>
+</section>
+<!-- Projects Section -->
 
 
         <!-- ======= Contact Section ======= -->
@@ -303,7 +536,7 @@
                 </div>
             </div>
             <br>
-            <h2 style="font-family: Georgia, 'Times New Roman', Times, serif, ; font-size: large;">Interested in working with me?, we can schedule a meet up.I'll bring the snacks</h2>
+            <h2 style="font-family: Georgia, 'Times New Roman', Times, serif, ; font-size: large;">Discuss a project or just want to say hi? Connect with me via email or a phone call. I’d love to hear your ideas.</h2>
             <form action="https://formspree.io/f/mjvndngr" id="hireme" method="POST" style="border: 2px solid black; border-radius: 10px; padding: 20px; margin-bottom: 20px;">
         
                 <div class="row">
@@ -362,7 +595,7 @@
                 <br>
                 <div>
                     <button type="submit"
-                        style="border: 2px solid rgb(213, 149, 160);margin-bottom: 20px;background-color: rgb(213, 149, 160);border-radius: 10px; width: 200px;height: 100px; color: white;">Send
+                        style="border: 2px solid rgb(213, 149, 160);margin-bottom: 20px;background-color: rgb(213, 149, 160);border-radius: 10px; width: 150px;height: 50px; color: white;">Send
                         Message</button>
                 </div>
             </form><!-- End Contact Form -->
@@ -407,6 +640,31 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+        <script>
+    const toggleBtn = document.getElementById("themeToggle");
+    const body = document.body;
+
+    if (localStorage.getItem("theme") === "dark") {
+        body.classList.add("dark-mode");
+        toggleBtn.classList.remove("bi-moon-fill");
+        toggleBtn.classList.add("bi-sun-fill");
+    }
+
+    toggleBtn.addEventListener("click", function () {
+        body.classList.toggle("dark-mode");
+
+        if (body.classList.contains("dark-mode")) {
+            localStorage.setItem("theme", "dark");
+            toggleBtn.classList.remove("bi-moon-fill");
+            toggleBtn.classList.add("bi-sun-fill");
+        } else {
+            localStorage.setItem("theme", "light");
+            toggleBtn.classList.remove("bi-sun-fill");
+            toggleBtn.classList.add("bi-moon-fill");
+        }
+    });
+</script>
+
 </body>
 
 </html>
