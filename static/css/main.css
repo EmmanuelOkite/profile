@@ -177,6 +177,7 @@ h1, h2, h3, h4, h5, h6 {
   overflow: hidden;
   background: linear-gradient(135deg, #0a0a1a 0%, #1a0a2e 30%, #16213e 60%, #0f3460 100%);
   padding-top: 80px;
+  padding-top: calc(80px + 2rem);
 }
 
 .hero-section::before {
@@ -793,6 +794,13 @@ select option {
 
 /* ======== Responsive ======== */
 @media (max-width: 768px) {
+  .header {
+    top: 0;
+    left: 0;
+    right: 0;
+    border-radius: 0;
+  }
+  
   section {
     padding: 60px 0;
   }
