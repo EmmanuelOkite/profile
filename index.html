@@ -90,46 +90,722 @@
 
 .skills-section h2 {
   font-size: 2.2rem;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
-/* Grid Layout */
+/* Grid Layout - 4 columns on desktop, responsive */
 .skills-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(90px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
   gap:12px;
+}
+
+.soft-skills-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:12px;
+  margin-top:20px;
 }
 
 /* Skill Cards */
 .skill-card{
-  padding:10px;
+  padding:12px 8px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  text-align: center;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+/* .typed-role - make it bold */
+.typed-role {
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.5;
+  margin-bottom: 20px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 700;
+}
+
+.soft-skill-card{
+  padding:12px 8px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  text-align: center;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
 }
 
 /* Icon */
 .skill-card img {
-  width: 55px;
-  height: 55px;
-  margin-bottom: 15px;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 6px;
   filter: brightness(1.2);
 }
 
+.soft-skill-card i {
+  font-size: 1.8rem;
+  margin-bottom: 6px;
+  color: #ff0080;
+}
+
 /* Text */
-.skill-card p {
-  font-size: 1rem;
+.skill-card p,
+.soft-skill-card p {
+  font-size: 0.8rem;
   font-weight: 500;
+  margin-bottom: 6px;
+}
+
+/* Progress Bar */
+.skill-progress {
+  width: 100%;
+  height: 6px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+.skill-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #ff0080, #ff6b9d);
+  border-radius: 10px;
+  transition: width 1s ease-in-out;
+}
+
+.skill-percentage {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #ff0080;
 }
 
 /* Hover Effect */
-.skill-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 25px rgba(255, 0, 128, 0.3);
+.skill-card:hover,
+.soft-skill-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(255, 0, 128, 0.3);
   border-color: #ff0080;
 }
 
-/* Active Card (like Vite in screenshot) */
+/* Active Card */
 .skill-card.active {
   border: 2px solid #ff0080;
   box-shadow: 0 0 20px rgba(255, 0, 128, 0.6);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .soft-skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  .soft-skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ====== HERO SECTION - PROFESSIONAL REDESIGN ====== */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0a0a1a 0%, #1a0a2e 30%, #16213e 60%, #0f3460 100%);
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 20% 50%, rgba(255, 0, 128, 0.15) 0%, transparent 50%),
+              radial-gradient(ellipse at 80% 50%, rgba(0, 200, 255, 0.1) 0%, transparent 50%),
+              radial-gradient(ellipse at 50% 0%, rgba(138, 43, 226, 0.2) 0%, transparent 50%);
+  z-index: 0;
+}
+
+/* Animated border glow around image */
+.hero-image-wrapper {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-image-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, #ff0080, #7b2ff7, #00c8ff, #ff0080);
+  animation: rotate-border 4s linear infinite;
+  z-index: -1;
+}
+
+.hero-image-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  border-radius: 50%;
+  background: #0a0a1a;
+  z-index: -1;
+}
+
+@keyframes rotate-border {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Floating particles */
+.hero-particles {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(255, 0, 128, 0.6);
+  border-radius: 50%;
+  animation: float-particle linear infinite;
+}
+
+.particle:nth-child(2) { left: 10%; animation-duration: 8s; animation-delay: 1s; background: rgba(0, 200, 255, 0.5); }
+.particle:nth-child(3) { left: 20%; animation-duration: 10s; animation-delay: 2s; background: rgba(138, 43, 226, 0.5); }
+.particle:nth-child(4) { left: 30%; animation-duration: 7s; animation-delay: 0.5s; background: rgba(255, 0, 128, 0.4); }
+.particle:nth-child(5) { left: 40%; animation-duration: 9s; animation-delay: 3s; background: rgba(0, 200, 255, 0.6); }
+.particle:nth-child(6) { left: 50%; animation-duration: 11s; animation-delay: 1.5s; background: rgba(138, 43, 226, 0.4); }
+.particle:nth-child(7) { left: 60%; animation-duration: 8s; animation-delay: 2.5s; background: rgba(255, 0, 128, 0.5); }
+.particle:nth-child(8) { left: 70%; animation-duration: 10s; animation-delay: 0.8s; background: rgba(0, 200, 255, 0.5); }
+.particle:nth-child(9) { left: 80%; animation-duration: 7s; animation-delay: 3.5s; background: rgba(138, 43, 226, 0.6); }
+.particle:nth-child(10) { left: 90%; animation-duration: 9s; animation-delay: 1.2s; background: rgba(255, 0, 128, 0.4); }
+
+@keyframes float-particle {
+  0% { transform: translateY(100vh) scale(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+}
+
+/* Hero content */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.hero-content h2 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  text-shadow: 0 0 40px rgba(255, 0, 128, 0.3);
+}
+
+.hero-content h2 .gradient-text {
+  background: linear-gradient(135deg, #ff0080, #7b2ff7, #00c8ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s ease-in-out infinite;
+  background-size: 200% auto;
+}
+
+@keyframes shimmer {
+  0%, 100% { background-position: 0% center; }
+  50% { background-position: 200% center; }
+}
+
+.hero-content p {
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.7;
+  margin-bottom: 30px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-image {
+  width: clamp(200px, 30vw, 350px);
+  height: clamp(200px, 30vw, 350px);
+  object-fit: cover;
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+  animation: float-image 6s ease-in-out infinite;
+}
+
+@keyframes float-image {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* Animated badges */
+.hero-badge {
+  display: inline-block;
+  padding: 8px 20px;
+  background: rgba(255, 0, 128, 0.15);
+  border: 1px solid rgba(255, 0, 128, 0.3);
+  border-radius: 50px;
+  color: #ff0080;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 10px rgba(255, 0, 128, 0.2); }
+  50% { box-shadow: 0 0 25px rgba(255, 0, 128, 0.4); }
+}
+
+/* CTA Buttons */
+.hero-btn {
+  display: inline-block;
+  padding: 14px 36px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin: 6px;
+  cursor: pointer;
+  border: none;
+}
+
+.hero-btn-primary {
+  background: linear-gradient(135deg, #ff0080, #7b2ff7);
+  color: #fff;
+  box-shadow: 0 8px 30px rgba(255, 0, 128, 0.3);
+}
+
+.hero-btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(255, 0, 128, 0.5);
+  color: #fff;
+}
+
+.hero-btn-outline {
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.hero-btn-outline:hover {
+  border-color: #ff0080;
+  color: #ff0080;
+  transform: translateY(-3px);
+}
+
+/* Grid lines background */
+.hero-grid-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: 
+    linear-gradient(rgba(255, 0, 128, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 0, 128, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: grid-move 20s linear infinite;
+}
+
+@keyframes grid-move {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(60px, 60px); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 90vh;
+  }
+  .hero-content {
+    padding: 0 20px;
+  }
+  .hero-content p {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.skills-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+}
+
+/* Grid Layout - 4 columns on desktop, responsive */
+.skills-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:12px;
+}
+
+.soft-skills-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:12px;
+  margin-top:20px;
+}
+
+/* Skill Cards */
+.skill-card{
+  padding:12px 8px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  text-align: center;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.soft-skill-card{
+  padding:12px 8px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  text-align: center;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+/* Icon */
+.skill-card img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 6px;
+  filter: brightness(1.2);
+}
+
+.soft-skill-card i {
+  font-size: 1.8rem;
+  margin-bottom: 6px;
+  color: #ff0080;
+}
+
+/* Text */
+.skill-card p,
+.soft-skill-card p {
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+/* Progress Bar */
+.skill-progress {
+  width: 100%;
+  height: 6px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+.skill-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #ff0080, #ff6b9d);
+  border-radius: 10px;
+  transition: width 1s ease-in-out;
+}
+
+.skill-percentage {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #ff0080;
+}
+
+/* Hover Effect */
+.skill-card:hover,
+.soft-skill-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(255, 0, 128, 0.3);
+  border-color: #ff0080;
+}
+
+/* Active Card */
+.skill-card.active {
+  border: 2px solid #ff0080;
+  box-shadow: 0 0 20px rgba(255, 0, 128, 0.6);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .soft-skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  .soft-skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ====== HERO SECTION - PROFESSIONAL REDESIGN ====== */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0a0a1a 0%, #1a0a2e 30%, #16213e 60%, #0f3460 100%);
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 20% 50%, rgba(255, 0, 128, 0.15) 0%, transparent 50%),
+              radial-gradient(ellipse at 80% 50%, rgba(0, 200, 255, 0.1) 0%, transparent 50%),
+              radial-gradient(ellipse at 50% 0%, rgba(138, 43, 226, 0.2) 0%, transparent 50%);
+  z-index: 0;
+}
+
+/* Animated border glow around image */
+.hero-image-wrapper {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-image-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, #ff0080, #7b2ff7, #00c8ff, #ff0080);
+  animation: rotate-border 4s linear infinite;
+  z-index: -1;
+}
+
+.hero-image-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  border-radius: 50%;
+  background: #0a0a1a;
+  z-index: -1;
+}
+
+@keyframes rotate-border {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Floating particles */
+.hero-particles {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(255, 0, 128, 0.6);
+  border-radius: 50%;
+  animation: float-particle linear infinite;
+}
+
+.particle:nth-child(2) { left: 10%; animation-duration: 8s; animation-delay: 1s; background: rgba(0, 200, 255, 0.5); }
+.particle:nth-child(3) { left: 20%; animation-duration: 10s; animation-delay: 2s; background: rgba(138, 43, 226, 0.5); }
+.particle:nth-child(4) { left: 30%; animation-duration: 7s; animation-delay: 0.5s; background: rgba(255, 0, 128, 0.4); }
+.particle:nth-child(5) { left: 40%; animation-duration: 9s; animation-delay: 3s; background: rgba(0, 200, 255, 0.6); }
+.particle:nth-child(6) { left: 50%; animation-duration: 11s; animation-delay: 1.5s; background: rgba(138, 43, 226, 0.4); }
+.particle:nth-child(7) { left: 60%; animation-duration: 8s; animation-delay: 2.5s; background: rgba(255, 0, 128, 0.5); }
+.particle:nth-child(8) { left: 70%; animation-duration: 10s; animation-delay: 0.8s; background: rgba(0, 200, 255, 0.5); }
+.particle:nth-child(9) { left: 80%; animation-duration: 7s; animation-delay: 3.5s; background: rgba(138, 43, 226, 0.6); }
+.particle:nth-child(10) { left: 90%; animation-duration: 9s; animation-delay: 1.2s; background: rgba(255, 0, 128, 0.4); }
+
+@keyframes float-particle {
+  0% { transform: translateY(100vh) scale(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+}
+
+/* Hero content */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.hero-content h2 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  text-shadow: 0 0 40px rgba(255, 0, 128, 0.3);
+}
+
+.hero-content h2 .gradient-text {
+  background: linear-gradient(135deg, #ff0080, #7b2ff7, #00c8ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s ease-in-out infinite;
+  background-size: 200% auto;
+}
+
+@keyframes shimmer {
+  0%, 100% { background-position: 0% center; }
+  50% { background-position: 200% center; }
+}
+
+.hero-content p {
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.7;
+  margin-bottom: 30px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-image {
+  width: clamp(200px, 30vw, 350px);
+  height: clamp(200px, 30vw, 350px);
+  object-fit: cover;
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+  animation: float-image 6s ease-in-out infinite;
+}
+
+@keyframes float-image {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* Animated badges */
+.hero-badge {
+  display: inline-block;
+  padding: 8px 20px;
+  background: rgba(255, 0, 128, 0.15);
+  border: 1px solid rgba(255, 0, 128, 0.3);
+  border-radius: 50px;
+  color: #ff0080;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 10px rgba(255, 0, 128, 0.2); }
+  50% { box-shadow: 0 0 25px rgba(255, 0, 128, 0.4); }
+}
+
+/* CTA Buttons */
+.hero-btn {
+  display: inline-block;
+  padding: 14px 36px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin: 6px;
+  cursor: pointer;
+  border: none;
+}
+
+.hero-btn-primary {
+  background: linear-gradient(135deg, #ff0080, #7b2ff7);
+  color: #fff;
+  box-shadow: 0 8px 30px rgba(255, 0, 128, 0.3);
+}
+
+.hero-btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(255, 0, 128, 0.5);
+  color: #fff;
+}
+
+.hero-btn-outline {
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.hero-btn-outline:hover {
+  border-color: #ff0080;
+  color: #ff0080;
+  transform: translateY(-3px);
+}
+
+/* Grid lines background */
+.hero-grid-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: 
+    linear-gradient(rgba(255, 0, 128, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 0, 128, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: grid-move 20s linear infinite;
+}
+
+@keyframes grid-move {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(60px, 60px); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 90vh;
+  }
+  .hero-content {
+    padding: 0 20px;
+  }
+  .hero-content p {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 #about{
@@ -170,28 +846,24 @@
 <body>
 
     <!-- ======= Header ======= -->
-    <header id="header" class="header fixed-top d-flex align-items-center">
+    <header id="header" class="header glass-nav">
         <div class="container d-flex align-items-center justify-content-between">
 
-            <a href="index.html" class="logo d-flex align-items-center me-auto me-lg-0">
+            <a href="index.html" class="logo d-flex align-items-center">
                 <h1>&lt;Emmanuel Okite /&gt;</h1>
             </a>
 
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#about">About Me</a></li>
-                    <li><a href="#why-us">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="#hireme">Hire me</a></li>
+                    <li><a href="#hero" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">About Me</a></li>
+                    <li><a href="#why-us" class="nav-link">Projects</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                    <li><a href="#hireme" class="nav-link">Hire me</a></li>
                 </ul>
             </nav>
 
-            <!-- 🌙 Dark Mode Toggle Button -->
             <i class="bi bi-moon-fill theme-toggle" id="themeToggle"></i>
-
-            <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
-            <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
 
         </div>
     </header>
@@ -200,30 +872,47 @@
 <!-- End Header -->
 
     <!-- ======= Hero Section ======= -->
-    <section id="hero" class="hero d-flex align-items-center section-bg">
-        <div class="container">
-            <div class="row justify-content-between gy-5">
-                <div
-                    class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start">
-                    <h2 data-aos="fade-up">Hi, I'm Emmanuel Okite<br>A Fullstack Developer</h2>
-                    <p data-aos="fade-up" data-aos-delay="100">I am a dedicated Software Developer focused on building efficient, scalable, and user-centered web applications. With strong experience in Django and modern frontend technologies, I enjoy transforming ideas into functional digital solutions that improve business operations.</p>
-                        <div class>
-    <a href="https://docs.google.com/document/d/1Fmadhn0Lfq8ThPdFm06G292UmxFcqWWs/edit?usp=sharing&ouid=109541243572314243844&rtpof=true&sd=true" 
-       class="btn btn-primary" 
-       target="_blank" 
-       style="background-color: rgb(213, 149, 160); color: white; border-color: rgb(213, 149, 160); width: 200px;">
-       Download CV
-    </a>
-</div><br>
-
-                </div>
-                <div class="col-lg-5 order-1 order-lg-2 text-center text-lg-start">
-                    <img src="./images/emmaokite.jpeg" class="img-fluid rounded-circle" alt="" data-aos="zoom-out"
-                        data-aos-delay="200" height="100" width="300">
-                </div>
+    <section id="hero" class="hero-section">
+      <div class="hero-grid-bg"></div>
+      <div class="hero-particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+      </div>
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 order-2 order-lg-1">
+            <div class="hero-content">
+              
+               <h2 data-aos="fade-up">Hi, I'm <span class="gradient-text">Emmanuel Okite</span></h2>
+               <p data-aos="fade-up" data-aos-delay="100" id="typed-role" class="typed-role"></p>
+               <p style="font-size: clamp(0.9rem, 1.5vw, 1.1rem); color: rgba(255,255,255,0.5); margin-bottom: 10px; max-width: 600px; margin-left: auto; margin-right: auto;">Crafting innovative digital solutions through modern software development while providing reliable IT support and technical assistance that help businesses, organizations, and individuals improve productivity, solve real-world problems, and create smooth, efficient, and secure digital experiences in today’s technology-driven world.</p>
+              <div class="d-flex justify-content-center flex-wrap" data-aos="fade-up" data-aos-delay="200">
+                <a href="https://docs.google.com/document/d/1Fmadhn0Lfq8ThPdFm06G292UmxFcqWWs/edit?usp=sharing&ouid=109541243572314243844&rtpof=true&sd=true" 
+                   class="hero-btn hero-btn-primary" target="_blank">
+                  Download Resume
+                </a>
+                <a href="#contact" class="hero-btn hero-btn-outline">
+                  Get In Touch
+                </a>
+              </div>
             </div>
+          </div>
+          <div class="col-lg-6 order-1 order-lg-2 text-center">
+            <div class="hero-image-wrapper" data-aos="zoom-out" data-aos-delay="200">
+              <img src="./images/emmaokite.jpeg" class="hero-image" alt="Emmanuel Okite">
+            </div>
+          </div>
         </div>
-    </section><!-- End Home Section -->
+      </div>
+    </section><!-- End Hero Section -->
 
     <main id="main">
 
@@ -280,60 +969,98 @@
                     <!-- Skills Section -->
                     <section class="skills-section" id="skills">
 
-    <!-- <h2>Technical Skills</h2> -->
-
     <div class="skills-grid">
 
         <div class="skill-card">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg">
             <p>Python</p>
+            <div class="skill-progress">
+                <div class="skill-bar" style="width: 85%"></div>
+            </div>
+            <span class="skill-percentage">85%</span>
         </div>
 
         <div class="skill-card">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg">
             <p>Django</p>
+            <div class="skill-progress">
+                <div class="skill-bar" style="width: 80%"></div>
+            </div>
+            <span class="skill-percentage">80%</span>
         </div>
 
         <div class="skill-card">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nestjs/nestjs-original.svg">
             <p>NestJS</p>
+            <div class="skill-progress">
+                <div class="skill-bar" style="width: 70%"></div>
+            </div>
+            <span class="skill-percentage">70%</span>
         </div>
 
         <div class="skill-card">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg">
             <p>HTML</p>
+            <div class="skill-progress">
+                <div class="skill-bar" style="width: 90%"></div>
+            </div>
+            <span class="skill-percentage">90%</span>
         </div>
 
         <div class="skill-card">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg">
             <p>React.js</p>
+            <div class="skill-progress">
+                <div class="skill-bar" style="width: 75%"></div>
+            </div>
+            <span class="skill-percentage">75%</span>
         </div>
 
         <div class="skill-card">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg">
             <p>CSS</p>
+            <div class="skill-progress">
+                <div class="skill-bar" style="width: 85%"></div>
+            </div>
+            <span class="skill-percentage">85%</span>
         </div>
 
         <div class="skill-card">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vitejs/vitejs-original.svg">
             <p>Vite</p>
+            <div class="skill-progress">
+                <div class="skill-bar" style="width: 75%"></div>
+            </div>
+            <span class="skill-percentage">75%</span>
         </div>
 
         <!-- IT Support Tools -->
 <div class="skill-card">
     <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/teamviewer.svg" style="width:60px; height:60px;">
     <p>TeamViewer</p>
+    <div class="skill-progress">
+        <div class="skill-bar" style="width: 80%"></div>
+    </div>
+    <span class="skill-percentage">80%</span>
 </div>
 
 
 <div class="skill-card">
     <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/anydesk.svg" style="width:60px; height:60px;">
     <p>AnyDesk</p>
+    <div class="skill-progress">
+        <div class="skill-bar" style="width: 75%"></div>
+    </div>
+    <span class="skill-percentage">75%</span>
 </div>
 
 <div class="skill-card">
     <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/wireshark.svg" style="width:60px; height:60px;">
     <p>Wireshark</p>
+    <div class="skill-progress">
+        <div class="skill-bar" style="width: 65%"></div>
+    </div>
+    <span class="skill-percentage">65%</span>
 </div>
 
 
@@ -344,13 +1071,48 @@
                         MY SOFT SKILLS
                     </h5>
 
-                    <ul>
-                        <li><i class="bi bi-check2-all"></i> Paying attention to details</li>
-                        <li><i class="bi bi-check2-all"></i> Time management</li>
-                        <li><i class="bi bi-check2-all"></i> Problem-solving</li>
-                        <li><i class="bi bi-check2-all"></i> Teamwork</li>
-                        <li><i class="bi bi-check2-all"></i> Communication</li>
-                    </ul>
+                    <div class="soft-skills-grid">
+                        <div class="soft-skill-card">
+                            <i class="bi bi-eye"></i>
+                            <p>Attention to Detail</p>
+                            <div class="skill-progress">
+                                <div class="skill-bar" style="width: 90%"></div>
+                            </div>
+                            <span class="skill-percentage">90%</span>
+                        </div>
+                        <div class="soft-skill-card">
+                            <i class="bi bi-clock"></i>
+                            <p>Time Management</p>
+                            <div class="skill-progress">
+                                <div class="skill-bar" style="width: 85%"></div>
+                            </div>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                        <div class="soft-skill-card">
+                            <i class="bi bi-lightbulb"></i>
+                            <p>Problem Solving</p>
+                            <div class="skill-progress">
+                                <div class="skill-bar" style="width: 88%"></div>
+                            </div>
+                            <span class="skill-percentage">88%</span>
+                        </div>
+                        <div class="soft-skill-card">
+                            <i class="bi bi-people"></i>
+                            <p>Teamwork</p>
+                            <div class="skill-progress">
+                                <div class="skill-bar" style="width: 92%"></div>
+                            </div>
+                            <span class="skill-percentage">92%</span>
+                        </div>
+                        <div class="soft-skill-card">
+                            <i class="bi bi-chat"></i>
+                            <p>Communication</p>
+                            <div class="skill-progress">
+                                <div class="skill-bar" style="width: 87%"></div>
+                            </div>
+                            <span class="skill-percentage">87%</span>
+                        </div>
+                    </div>
 
                 </div>
 
@@ -535,8 +1297,8 @@
         
                 <div class="row">
                     <div class="col-xl-6 form-group">
-                        <input type="email" name="email" class="form-control" id="email" placeholder="Your Email"
-                            required>
+                            <input type="email" name="email" class="form-control" id="email" placeholder="Your Email"
+                            required style="color: #fff;">
                     </div><br>
                     <div class="col-xl-3 form-group">
                         <select name="country_code" class="form-control" id="country_code" required>
@@ -578,13 +1340,13 @@
                     </div>
                     <div class="col-xl-3 form-group">
                         <input type="text" name="contact" class="form-control" id="contact"
-                            placeholder="Your Contact Number" required>
+                            placeholder="Your Contact Number" required style="color: #fff;">
                     </div><br>
                 </div>
                 <br>
                 <div class="form-group">
                     <textarea name="message" class="form-control" id="message" rows="5" placeholder="Message"
-                        required></textarea>
+                        required style="color: #fff;"></textarea>
                 </div>
                 <br>
                 <div>
@@ -600,16 +1362,11 @@
     <footer id="footer" class="footer">
 
         <div class="container">
-
-        </div>
-
-        <div class="container">
             <div class="copyright">
                 &copy;"Tech it to the next level."
             </div>
 
             <div class="credits">
-
                 Designed by <a href="">Emmanuel Okite</a>
             </div>
         </div>
@@ -657,6 +1414,78 @@
             toggleBtn.classList.add("bi-moon-fill");
         }
     });
+
+    // Typing Animation - only roles
+    const roles = [
+        "Backend Developer",
+        "IT Support Specialist",
+        "Website Developer"
+        
+    ];
+
+    const typedRole = document.getElementById("typed-role");
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function typeRole() {
+        const currentRole = roles[roleIndex];
+        
+        if (!isDeleting) {
+            if (charIndex < currentRole.length) {
+                typedRole.textContent = currentRole.substring(0, charIndex + 1);
+                charIndex++;
+                setTimeout(typeRole, 80);
+            } else {
+                isDeleting = true;
+                setTimeout(typeRole, 2000);
+            }
+        } else {
+            if (charIndex > 0) {
+                typedRole.textContent = currentRole.substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(typeRole, 40);
+            } else {
+                isDeleting = false;
+                roleIndex = (roleIndex + 1) % roles.length;
+                charIndex = 0;
+                setTimeout(typeRole, 500);
+            }
+        }
+    }
+
+    // Start the animation
+    setTimeout(typeRole, 500);
+
+    // Dark Mode Toggle
+    // const toggleBtn = document.getElementById("themeToggle");
+    // const body = document.body;
+
+    if (localStorage.getItem("theme") === "dark") {
+        body.classList.add("dark-mode");
+        toggleBtn.classList.remove("bi-moon-fill");
+        toggleBtn.classList.add("bi-sun-fill");
+    }
+
+    toggleBtn.addEventListener("click", function () {
+        body.classList.toggle("dark-mode");
+
+        if (body.classList.contains("dark-mode")) {
+            localStorage.setItem("theme", "dark");
+            toggleBtn.classList.remove("bi-moon-fill");
+            toggleBtn.classList.add("bi-sun-fill");
+        } else {
+            localStorage.setItem("theme", "light");
+            toggleBtn.classList.remove("bi-sun-fill");
+            toggleBtn.classList.add("bi-moon-fill");
+        }
+    });
+            
+        
+    
+
+    // Start the animation
+    setTimeout(typeRole, 500);
 </script>
 
 </body>
