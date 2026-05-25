@@ -710,6 +710,18 @@ select option {
   border-color: var(--color-primary);
   outline: none;
   box-shadow: 0 0 15px rgba(255, 0, 128, 0.15);
+  background: rgba(255,255,255,0.08);
+}
+
+/* Focus state for all form controls */
+.form-control:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--color-primary);
+  outline: none;
+  box-shadow: 0 0 15px rgba(255, 0, 128, 0.15);
+  background: rgba(255,255,255,0.08);
 }
 
 .contact .php-email-form button[type="submit"] {
