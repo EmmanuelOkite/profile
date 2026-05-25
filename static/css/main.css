@@ -468,6 +468,19 @@ section {
   margin-right: 8px;
 }
 
+/* Form input styles */
+.form-control,
+input,
+textarea,
+select {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 1rem;
+}
+
 /* Form placeholder visibility */
 input::placeholder,
 textarea::placeholder {
@@ -690,29 +703,6 @@ select option {
   border-radius: 16px;
   padding: 30px;
 }
-
-.contact .php-email-form input,
-  .contact .php-email-form textarea,
-  .contact .php-email-form select {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid var(--color-border);
-    color: var(--color-text);
-    border-radius: 8px;
-    padding: 12px 16px;
-    font-size: 1rem;
-  }
-
-  .contact .php-email-form input::placeholder,
-  .contact .php-email-form textarea::placeholder {
-    color: rgba(255, 255, 255, 0.85);
-    font-size: 0.95rem;
-    opacity: 1;
-  }
-
-  .contact .php-email-form select option {
-    color: var(--color-text);
-    background: #0a0a1a;
-  }
 
 .contact .php-email-form input:focus,
 .contact .php-email-form textarea:focus,
