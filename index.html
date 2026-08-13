@@ -45,41 +45,6 @@
             padding: 30px;
         }
 
-        /* ===== DARK MODE STYLES ===== */
-        body.dark-mode {
-            background-color: #121212;
-            color: #ffffff;
-        }
-
-        body.dark-mode .header,
-        body.dark-mode .section-bg,
-        body.dark-mode .about,
-        body.dark-mode .contact,
-        body.dark-mode .why-us,
-        body.dark-mode footer {
-            background-color: #1e1e1e !important;
-        }
-
-        body.dark-mode .icon-box {
-            background-color: #2a2a2a;
-        }
-
-        body.dark-mode .form-control {
-            background-color: #2a2a2a;
-            color: white;
-            border-color: #444;
-        }
-
-        body.dark-mode a {
-            color: #ffb6c1;
-        }
-
-        .theme-toggle {
-            cursor: pointer;
-            font-size: 22px;
-            margin-left: 15px;
-        }
-
         /* Skills Section */
 .skills-section {
   padding: 20px 0px;
@@ -864,7 +829,6 @@
             </nav>
 
             <div class="header-actions d-flex align-items-center gap-2">
-                <i class="bi bi-moon-fill theme-toggle" id="themeToggle"></i>
                 <i class="bi bi-list mobile-nav-toggle" id="mobileNavToggle"></i>
             </div>
 
@@ -1419,29 +1383,6 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
         <script>
-    const toggleBtn = document.getElementById("themeToggle");
-    const body = document.body;
-
-    if (localStorage.getItem("theme") === "dark") {
-        body.classList.add("dark-mode");
-        toggleBtn.classList.remove("bi-moon-fill");
-        toggleBtn.classList.add("bi-sun-fill");
-    }
-
-    toggleBtn.addEventListener("click", function () {
-        body.classList.toggle("dark-mode");
-
-        if (body.classList.contains("dark-mode")) {
-            localStorage.setItem("theme", "dark");
-            toggleBtn.classList.remove("bi-moon-fill");
-            toggleBtn.classList.add("bi-sun-fill");
-        } else {
-            localStorage.setItem("theme", "light");
-            toggleBtn.classList.remove("bi-sun-fill");
-            toggleBtn.classList.add("bi-moon-fill");
-        }
-    });
-
     // Typing Animation - only roles
     const roles = [
         "Full-Stack Developer",
@@ -1480,36 +1421,6 @@
             }
         }
     }
-
-    // Start the animation
-    setTimeout(typeRole, 500);
-
-    // Dark Mode Toggle
-    // const toggleBtn = document.getElementById("themeToggle");
-    // const body = document.body;
-
-    if (localStorage.getItem("theme") === "dark") {
-        body.classList.add("dark-mode");
-        toggleBtn.classList.remove("bi-moon-fill");
-        toggleBtn.classList.add("bi-sun-fill");
-    }
-
-    toggleBtn.addEventListener("click", function () {
-        body.classList.toggle("dark-mode");
-
-        if (body.classList.contains("dark-mode")) {
-            localStorage.setItem("theme", "dark");
-            toggleBtn.classList.remove("bi-moon-fill");
-            toggleBtn.classList.add("bi-sun-fill");
-        } else {
-            localStorage.setItem("theme", "light");
-            toggleBtn.classList.remove("bi-sun-fill");
-            toggleBtn.classList.add("bi-moon-fill");
-        }
-    });
-            
-        
-    
 
     // Start the animation
     setTimeout(typeRole, 500);
