@@ -35,7 +35,7 @@
 
     <style>
         .myform {
-            border: 2px solid pink;
+            border: 2px solid #ff9a4d;
             border-radius: 10px;
             display: flex;
             align-items: center;
@@ -45,765 +45,6 @@
             padding: 30px;
         }
 
-        /* Skills Section */
-.skills-section {
-  padding: 20px 0px;
-  background: transparent;
-  color: #fff;
-  text-align: center;
-}
-
-.skills-section h2 {
-  font-size: 2.2rem;
-  margin-bottom: 30px;
-}
-
-/* Grid Layout - 4 columns on desktop, responsive */
-.skills-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-  gap:12px;
-}
-
-.soft-skills-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-  gap:12px;
-  margin-top:20px;
-}
-
-/* Skill Cards */
-.skill-card{
-  padding:12px 8px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 10px;
-  text-align: center;
-  transition: all 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
-}
-
-/* .typed-role - make it bold */
-.typed-role {
-  font-size: clamp(1rem, 2vw, 1.3rem);
-  color: rgba(255, 255, 255, 0.9);
-  line-height: 1.5;
-  margin-bottom: 20px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  font-weight: 700;
-}
-
-.soft-skill-card{
-  padding:12px 8px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 10px;
-  text-align: center;
-  transition: all 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
-}
-
-/* Icon */
-.skill-card img {
-  width: 40px;
-  height: 40px;
-  margin-bottom: 6px;
-  filter: brightness(1.2);
-}
-
-.soft-skill-card i {
-  font-size: 1.8rem;
-  margin-bottom: 6px;
-  color: #ff0080;
-}
-
-/* Text */
-.skill-card p,
-.soft-skill-card p {
-  font-size: 0.8rem;
-  font-weight: 500;
-  margin-bottom: 6px;
-}
-
-/* Progress Bar */
-.skill-progress {
-  width: 100%;
-  height: 6px;
-  background: rgba(255,255,255,0.1);
-  border-radius: 10px;
-  overflow: hidden;
-  margin-bottom: 4px;
-}
-
-.skill-bar {
-  height: 100%;
-  background: linear-gradient(90deg, #ff0080, #ff6b9d);
-  border-radius: 10px;
-  transition: width 1s ease-in-out;
-}
-
-.skill-percentage {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: #ff0080;
-}
-
-/* Hover Effect */
-.skill-card:hover,
-.soft-skill-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(255, 0, 128, 0.3);
-  border-color: #ff0080;
-}
-
-/* Active Card */
-.skill-card.active {
-  border: 2px solid #ff0080;
-  box-shadow: 0 0 20px rgba(255, 0, 128, 0.6);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .skills-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .soft-skills-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 480px) {
-  .skills-grid {
-    grid-template-columns: 1fr;
-  }
-  .soft-skills-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ====== HERO SECTION - PROFESSIONAL REDESIGN ====== */
-.hero-section {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  background: linear-gradient(135deg, #0a0a1a 0%, #1a0a2e 30%, #16213e 60%, #0f3460 100%);
-}
-
-.hero-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at 20% 50%, rgba(255, 0, 128, 0.15) 0%, transparent 50%),
-              radial-gradient(ellipse at 80% 50%, rgba(0, 200, 255, 0.1) 0%, transparent 50%),
-              radial-gradient(ellipse at 50% 0%, rgba(138, 43, 226, 0.2) 0%, transparent 50%);
-  z-index: 0;
-}
-
-/* Animated border glow around image */
-.hero-image-wrapper {
-  position: relative;
-  z-index: 2;
-}
-
-.hero-image-wrapper::before {
-  content: '';
-  position: absolute;
-  inset: -3px;
-  border-radius: 50%;
-  background: conic-gradient(from 0deg, #ff0080, #7b2ff7, #00c8ff, #ff0080);
-  animation: rotate-border 4s linear infinite;
-  z-index: -1;
-}
-
-.hero-image-wrapper::after {
-  content: '';
-  position: absolute;
-  inset: 2px;
-  border-radius: 50%;
-  background: #0a0a1a;
-  z-index: -1;
-}
-
-@keyframes rotate-border {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* Floating particles */
-.hero-particles {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.particle {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  background: rgba(255, 0, 128, 0.6);
-  border-radius: 50%;
-  animation: float-particle linear infinite;
-}
-
-.particle:nth-child(2) { left: 10%; animation-duration: 8s; animation-delay: 1s; background: rgba(0, 200, 255, 0.5); }
-.particle:nth-child(3) { left: 20%; animation-duration: 10s; animation-delay: 2s; background: rgba(138, 43, 226, 0.5); }
-.particle:nth-child(4) { left: 30%; animation-duration: 7s; animation-delay: 0.5s; background: rgba(255, 0, 128, 0.4); }
-.particle:nth-child(5) { left: 40%; animation-duration: 9s; animation-delay: 3s; background: rgba(0, 200, 255, 0.6); }
-.particle:nth-child(6) { left: 50%; animation-duration: 11s; animation-delay: 1.5s; background: rgba(138, 43, 226, 0.4); }
-.particle:nth-child(7) { left: 60%; animation-duration: 8s; animation-delay: 2.5s; background: rgba(255, 0, 128, 0.5); }
-.particle:nth-child(8) { left: 70%; animation-duration: 10s; animation-delay: 0.8s; background: rgba(0, 200, 255, 0.5); }
-.particle:nth-child(9) { left: 80%; animation-duration: 7s; animation-delay: 3.5s; background: rgba(138, 43, 226, 0.6); }
-.particle:nth-child(10) { left: 90%; animation-duration: 9s; animation-delay: 1.2s; background: rgba(255, 0, 128, 0.4); }
-
-@keyframes float-particle {
-  0% { transform: translateY(100vh) scale(0); opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { transform: translateY(-10vh) scale(1); opacity: 0; }
-}
-
-/* Hero content */
-.hero-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-}
-
-.hero-content h2 {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 800;
-  color: #fff;
-  line-height: 1.2;
-  margin-bottom: 20px;
-  text-shadow: 0 0 40px rgba(255, 0, 128, 0.3);
-}
-
-.hero-content h2 .gradient-text {
-  background: linear-gradient(135deg, #ff0080, #7b2ff7, #00c8ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: shimmer 3s ease-in-out infinite;
-  background-size: 200% auto;
-}
-
-@keyframes shimmer {
-  0%, 100% { background-position: 0% center; }
-  50% { background-position: 200% center; }
-}
-
-.hero-content p {
-  font-size: clamp(0.95rem, 2vw, 1.15rem);
-  color: rgba(255, 255, 255, 0.7);
-  line-height: 1.7;
-  margin-bottom: 30px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.hero-image {
-  width: clamp(200px, 30vw, 350px);
-  height: clamp(200px, 30vw, 350px);
-  object-fit: cover;
-  border-radius: 50%;
-  position: relative;
-  z-index: 2;
-  animation: float-image 6s ease-in-out infinite;
-}
-
-@keyframes float-image {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
-}
-
-/* Animated badges */
-.hero-badge {
-  display: inline-block;
-  padding: 8px 20px;
-  background: rgba(255, 0, 128, 0.15);
-  border: 1px solid rgba(255, 0, 128, 0.3);
-  border-radius: 50px;
-  color: #ff0080;
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-  animation: pulse-glow 2s ease-in-out infinite;
-}
-
-@keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 10px rgba(255, 0, 128, 0.2); }
-  50% { box-shadow: 0 0 25px rgba(255, 0, 128, 0.4); }
-}
-
-/* CTA Buttons */
-.hero-btn {
-  display: inline-block;
-  padding: 14px 36px;
-  border-radius: 50px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  margin: 6px;
-  cursor: pointer;
-  border: none;
-}
-
-.hero-btn-primary {
-  background: linear-gradient(135deg, #ff0080, #7b2ff7);
-  color: #fff;
-  box-shadow: 0 8px 30px rgba(255, 0, 128, 0.3);
-}
-
-.hero-btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 40px rgba(255, 0, 128, 0.5);
-  color: #fff;
-}
-
-.hero-btn-outline {
-  background: transparent;
-  color: #fff;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-}
-
-.hero-btn-outline:hover {
-  border-color: #ff0080;
-  color: #ff0080;
-  transform: translateY(-3px);
-}
-
-/* Grid lines background */
-.hero-grid-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background-image: 
-    linear-gradient(rgba(255, 0, 128, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 0, 128, 0.03) 1px, transparent 1px);
-  background-size: 60px 60px;
-  animation: grid-move 20s linear infinite;
-}
-
-@keyframes grid-move {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(60px, 60px); }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .hero-section {
-    min-height: 90vh;
-  }
-  .hero-content {
-    padding: 0 20px;
-  }
-  .hero-content p {
-    margin-left: 0;
-    margin-right: 0;
-  }
-}
-
-.skills-section h2 {
-  font-size: 2.2rem;
-  margin-bottom: 30px;
-}
-
-/* Grid Layout - 4 columns on desktop, responsive */
-.skills-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-  gap:12px;
-}
-
-.soft-skills-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-  gap:12px;
-  margin-top:20px;
-}
-
-/* Skill Cards */
-.skill-card{
-  padding:12px 8px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 10px;
-  text-align: center;
-  transition: all 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
-}
-
-.soft-skill-card{
-  padding:12px 8px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 10px;
-  text-align: center;
-  transition: all 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
-}
-
-/* Icon */
-.skill-card img {
-  width: 40px;
-  height: 40px;
-  margin-bottom: 6px;
-  filter: brightness(1.2);
-}
-
-.soft-skill-card i {
-  font-size: 1.8rem;
-  margin-bottom: 6px;
-  color: #ff0080;
-}
-
-/* Text */
-.skill-card p,
-.soft-skill-card p {
-  font-size: 0.8rem;
-  font-weight: 500;
-  margin-bottom: 6px;
-}
-
-/* Progress Bar */
-.skill-progress {
-  width: 100%;
-  height: 6px;
-  background: rgba(255,255,255,0.1);
-  border-radius: 10px;
-  overflow: hidden;
-  margin-bottom: 4px;
-}
-
-.skill-bar {
-  height: 100%;
-  background: linear-gradient(90deg, #ff0080, #ff6b9d);
-  border-radius: 10px;
-  transition: width 1s ease-in-out;
-}
-
-.skill-percentage {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: #ff0080;
-}
-
-/* Hover Effect */
-.skill-card:hover,
-.soft-skill-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(255, 0, 128, 0.3);
-  border-color: #ff0080;
-}
-
-/* Active Card */
-.skill-card.active {
-  border: 2px solid #ff0080;
-  box-shadow: 0 0 20px rgba(255, 0, 128, 0.6);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .skills-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .soft-skills-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 480px) {
-  .skills-grid {
-    grid-template-columns: 1fr;
-  }
-  .soft-skills-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ====== HERO SECTION - PROFESSIONAL REDESIGN ====== */
-.hero-section {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  background: linear-gradient(135deg, #0a0a1a 0%, #1a0a2e 30%, #16213e 60%, #0f3460 100%);
-}
-
-.hero-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at 20% 50%, rgba(255, 0, 128, 0.15) 0%, transparent 50%),
-              radial-gradient(ellipse at 80% 50%, rgba(0, 200, 255, 0.1) 0%, transparent 50%),
-              radial-gradient(ellipse at 50% 0%, rgba(138, 43, 226, 0.2) 0%, transparent 50%);
-  z-index: 0;
-}
-
-/* Animated border glow around image */
-.hero-image-wrapper {
-  position: relative;
-  z-index: 2;
-}
-
-.hero-image-wrapper::before {
-  content: '';
-  position: absolute;
-  inset: -3px;
-  border-radius: 50%;
-  background: conic-gradient(from 0deg, #ff0080, #7b2ff7, #00c8ff, #ff0080);
-  animation: rotate-border 4s linear infinite;
-  z-index: -1;
-}
-
-.hero-image-wrapper::after {
-  content: '';
-  position: absolute;
-  inset: 2px;
-  border-radius: 50%;
-  background: #0a0a1a;
-  z-index: -1;
-}
-
-@keyframes rotate-border {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* Floating particles */
-.hero-particles {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.particle {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  background: rgba(255, 0, 128, 0.6);
-  border-radius: 50%;
-  animation: float-particle linear infinite;
-}
-
-.particle:nth-child(2) { left: 10%; animation-duration: 8s; animation-delay: 1s; background: rgba(0, 200, 255, 0.5); }
-.particle:nth-child(3) { left: 20%; animation-duration: 10s; animation-delay: 2s; background: rgba(138, 43, 226, 0.5); }
-.particle:nth-child(4) { left: 30%; animation-duration: 7s; animation-delay: 0.5s; background: rgba(255, 0, 128, 0.4); }
-.particle:nth-child(5) { left: 40%; animation-duration: 9s; animation-delay: 3s; background: rgba(0, 200, 255, 0.6); }
-.particle:nth-child(6) { left: 50%; animation-duration: 11s; animation-delay: 1.5s; background: rgba(138, 43, 226, 0.4); }
-.particle:nth-child(7) { left: 60%; animation-duration: 8s; animation-delay: 2.5s; background: rgba(255, 0, 128, 0.5); }
-.particle:nth-child(8) { left: 70%; animation-duration: 10s; animation-delay: 0.8s; background: rgba(0, 200, 255, 0.5); }
-.particle:nth-child(9) { left: 80%; animation-duration: 7s; animation-delay: 3.5s; background: rgba(138, 43, 226, 0.6); }
-.particle:nth-child(10) { left: 90%; animation-duration: 9s; animation-delay: 1.2s; background: rgba(255, 0, 128, 0.4); }
-
-@keyframes float-particle {
-  0% { transform: translateY(100vh) scale(0); opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { transform: translateY(-10vh) scale(1); opacity: 0; }
-}
-
-/* Hero content */
-.hero-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-}
-
-.hero-content h2 {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 800;
-  color: #fff;
-  line-height: 1.2;
-  margin-bottom: 20px;
-  text-shadow: 0 0 40px rgba(255, 0, 128, 0.3);
-}
-
-.hero-content h2 .gradient-text {
-  background: linear-gradient(135deg, #ff0080, #7b2ff7, #00c8ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: shimmer 3s ease-in-out infinite;
-  background-size: 200% auto;
-}
-
-@keyframes shimmer {
-  0%, 100% { background-position: 0% center; }
-  50% { background-position: 200% center; }
-}
-
-.hero-content p {
-  font-size: clamp(0.95rem, 2vw, 1.15rem);
-  color: rgba(255, 255, 255, 0.7);
-  line-height: 1.7;
-  margin-bottom: 30px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.hero-image {
-  width: clamp(200px, 30vw, 350px);
-  height: clamp(200px, 30vw, 350px);
-  object-fit: cover;
-  border-radius: 50%;
-  position: relative;
-  z-index: 2;
-  animation: float-image 6s ease-in-out infinite;
-}
-
-@keyframes float-image {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
-}
-
-/* Animated badges */
-.hero-badge {
-  display: inline-block;
-  padding: 8px 20px;
-  background: rgba(255, 0, 128, 0.15);
-  border: 1px solid rgba(255, 0, 128, 0.3);
-  border-radius: 50px;
-  color: #ff0080;
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-  animation: pulse-glow 2s ease-in-out infinite;
-}
-
-@keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 10px rgba(255, 0, 128, 0.2); }
-  50% { box-shadow: 0 0 25px rgba(255, 0, 128, 0.4); }
-}
-
-/* CTA Buttons */
-.hero-btn {
-  display: inline-block;
-  padding: 14px 36px;
-  border-radius: 50px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  margin: 6px;
-  cursor: pointer;
-  border: none;
-}
-
-.hero-btn-primary {
-  background: linear-gradient(135deg, #ff0080, #7b2ff7);
-  color: #fff;
-  box-shadow: 0 8px 30px rgba(255, 0, 128, 0.3);
-}
-
-.hero-btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 40px rgba(255, 0, 128, 0.5);
-  color: #fff;
-}
-
-.hero-btn-outline {
-  background: transparent;
-  color: #fff;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-}
-
-.hero-btn-outline:hover {
-  border-color: #ff0080;
-  color: #ff0080;
-  transform: translateY(-3px);
-}
-
-/* Grid lines background */
-.hero-grid-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background-image: 
-    linear-gradient(rgba(255, 0, 128, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 0, 128, 0.03) 1px, transparent 1px);
-  background-size: 60px 60px;
-  animation: grid-move 20s linear infinite;
-}
-
-@keyframes grid-move {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(60px, 60px); }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .hero-section {
-    min-height: 90vh;
-  }
-  .hero-content {
-    padding: 0 20px;
-  }
-  .hero-content p {
-    margin-left: 0;
-    margin-right: 0;
-  }
-}
-
-#about{
-  min-height:100vh;          /* full screen height */
-  display:flex;
-  align-items:center;        /* vertical centering */
-  padding:40px 0;            /* reduce huge spacing */
-}
-
-#about .section-header{
-  margin-bottom:20px;
-}
-
-#about h3{
-  margin-bottom:10px;
-}
-
-#about p{
-  margin-bottom:8px;
-}
-
-#about ul{
-  margin-bottom:0;
-}
-
-.about-photo{
-  max-width:180px;
-}
-
-#about .content{
-  font-size:15px;
-  line-height:1.5;
-}
 
     </style>
 </head>
@@ -811,66 +52,73 @@
 <body>
 
     <!-- ======= Header ======= -->
-    <header id="header" class="header glass-nav">
+    <header id="header" class="header">
         <div class="container d-flex align-items-center justify-content-between">
 
-            <a href="index.html" class="logo d-flex align-items-center">
-                <h1>&lt;Emmanuel Okite /&gt;</h1>
+            <a href="#hero" class="logo d-flex align-items-center">
+                <h1>Emmanuel Okite</h1>
             </a>
 
             <nav id="navbar" class="navbar">
                 <ul>
                     <li><a href="#hero" class="nav-link active">Home</a></li>
-                    <li><a href="#about" class="nav-link">About Me</a></li>
-                    <li><a href="#why-us" class="nav-link">Projects</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
-                    <li><a href="#hireme" class="nav-link nav-cta">Hire me</a></li>
+                    <li><a href="#about" class="nav-link">About me</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#why-us" class="nav-link">Portfolio</a></li>
+                    <li><a href="#contact" class="nav-link">Contact me</a></li>
                 </ul>
             </nav>
 
-            <div class="header-actions d-flex align-items-center gap-2">
+            <div class="header-actions d-flex align-items-center">
+                <a href="#hireme" class="btn-hire">Hire Me</a>
                 <i class="bi bi-list mobile-nav-toggle" id="mobileNavToggle"></i>
             </div>
 
         </div>
     </header>
 
-    
+    <!-- ======= Hero Section ======= -->
     <section id="hero" class="hero-section">
-      <div class="hero-grid-bg"></div>
-      <div class="hero-particles">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-      </div>
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-6 order-2 order-lg-1">
             <div class="hero-content">
-              
-               <h2 data-aos="fade-up">Hi, I'm <span class="gradient-text">Emmanuel Okite</span></h2>
-               <p data-aos="fade-up" data-aos-delay="100" id="typed-role" class="typed-role"></p>
-               <p style="font-size: clamp(0.9rem, 1.5vw, 1.1rem); color: rgba(255,255,255,0.5); margin-bottom: 10px; max-width: 600px; margin-left: auto; margin-right: auto;">Crafting innovative digital solutions through modern software development while providing reliable IT support and technical assistance that help businesses, organizations, and individuals improve productivity, solve real-world problems, and create smooth, efficient, and secure digital experiences in today’s technology-driven world.</p>
-              <div class="d-flex justify-content-center flex-wrap" data-aos="fade-up" data-aos-delay="200">
-                <a href="https://docs.google.com/document/d/1GUZpZGOF1_zFL_L3qM2r33L8h0W7OfX1_2a4U0M_GVY/edit?tab=t.0" 
-                   class="hero-btn hero-btn-primary" target="_blank">
-                  Download Resume
-                </a>
-                <a href="#contact" class="hero-btn hero-btn-outline">
-                  Get In Touch
-                </a>
+              <p class="hero-greeting">Hi I am</p>
+              <h2 class="hero-name">Emmanuel Okite</h2>
+              <h1 class="hero-role" id="typed-role">Full-Stack Developer</h1>
+              <p class="hero-desc">Crafting innovative digital solutions through modern software development while providing reliable IT support and technical assistance that help businesses, organizations, and individuals improve productivity, solve real-world problems, and create smooth, efficient, and secure digital experiences.</p>
+
+              <div class="hero-socials">
+                <a href="https://www.linkedin.com/in/emmanuel-okite-037433367" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                <a href="https://github.com/EmmanuelOkite?tab=repositories" target="_blank" rel="noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                <a href="mailto:emmanuelokite3@gmail.com" aria-label="Email"><i class="bi bi-envelope"></i></a>
+                <a href="tel:+256752393593" aria-label="Phone"><i class="bi bi-telephone"></i></a>
+              </div>
+
+              <div class="hero-buttons">
+                <a href="#hireme" class="hero-btn hero-btn-primary">Hire Me</a>
+                <a href="https://docs.google.com/document/d/1GUZpZGOF1_zFL_L3qM2r33L8h0W7OfX1_2a4U0M_GVY/edit?tab=t.0"
+                   class="hero-btn hero-btn-outline" target="_blank" rel="noopener">Download CV</a>
+              </div>
+
+              <div class="hero-stats">
+                <div class="hero-stat">
+                  <h4>3+</h4>
+                  <span>Projects done</span>
+                </div>
+                <div class="hero-stat">
+                  <h4>10+</h4>
+                  <span>Tech skills</span>
+                </div>
+                <div class="hero-stat">
+                  <h4>Cisco</h4>
+                  <span>Certified IT Support</span>
+                </div>
               </div>
             </div>
           </div>
           <div class="col-lg-6 order-1 order-lg-2 text-center">
-            <div class="hero-image-wrapper" data-aos="zoom-out" data-aos-delay="200">
+            <div class="hero-photo">
               <img src="./images/emmaokite.jpeg" class="hero-image" alt="Emmanuel Okite">
             </div>
           </div>
@@ -881,232 +129,204 @@
     <main id="main">
 
         <!-- ======= About Section ======= -->
-        <!-- ======= About Section ======= -->
-<section id="about" class="about">
-    <div class="container" data-aos="fade-up">
+        <section id="about" class="about">
+            <div class="container" data-aos="fade-up">
 
-        <div class="section-header">
-            <h2>About Me</h2>
-            <p>Discover deeper insights <span>into my background</span>.</p>
-        </div>
+                <div class="section-header">
+                    <h2>About Me</h2>
+                    <p>Discover deeper insights <span>into my background</span>.</p>
+                </div>
 
-        <!-- Row Start -->
-        <div class="row gy-4 align-items-start">
+                <div class="row gy-5 align-items-center">
 
-            <!-- Image Column -->
-            <div class="col-lg-4 text-center">
-                <img src="./images/emmaokite.jpeg"
-                     class="img-fluid rounded-circle about-photo"
-                     alt="Profile Image"
-                     data-aos="fade-up"
-                     data-aos-delay="100"
-                     style="max-width:220px;">
-            </div>
+                    <div class="col-lg-5 text-center">
+                        <img src="./images/emmaokite.jpeg" class="about-photo" alt="Emmanuel Okite">
+                    </div>
 
-            <!-- Content + Skills Column -->
-            <div class="col-lg-8" data-aos="fade-up" data-aos-delay="300">
+                    <div class="col-lg-7">
+                        <div class="content">
+                            <h3>Who I Am</h3>
 
-                <div class="content ps-0 ps-lg-5">
+                            <p>
+                                I'm a Software Developer and IT Support specialist who builds efficient, user-centered web applications with Django and modern frontend tools, and keeps systems running smoothly through hands-on troubleshooting, networking and technical support.
+                            </p>
 
-                    <h3>WHO I AM</h3>
+                            <h4 class="about-subtitle">Education &amp; Certification</h4>
 
-                    <p>
-                        <i class="bi bi-check2-all"></i>
-                        I am a dedicated Software Developer and IT Support enthusiast, focused on building efficient, scalable, and user-centered web applications. With strong experience in Django and modern frontend technologies, I enjoy transforming ideas into functional digital solutions that improve business operations. 
-                    </p>
-
-                    <p>
-                        <i class="bi bi-check2-all"></i>
-                        Alongside software development, I hold a Cisco Networking Academy IT Support certification, which provided hands-on experience in troubleshooting hardware and software issues, managing networks, performing system maintenance, and delivering effective technical support. This combination allows me to create robust applications while ensuring smooth and reliable system operations.
-                    </p>
-                    <p>
-                        <i class="bi bi-check2-all"></i>
-                        Additionally, I hold a Uganda Advanced Certificate of
-                        Education (UACE) from Mentor Secondary School, Lira City.
-                    </p>
-
-                    <h5 class="text-center"
-                        style="font-family: 'Times New Roman', Times, serif; text-decoration: underline;">
-                        MY TECHNICAL SKILLS
-                    </h5>
-
-                    <!-- Skills Section -->
-                    <section class="skills-section" id="skills">
-
-    <div class="skills-grid">
-
-        <div class="skill-card">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg">
-            <p>Python</p>
-            <div class="skill-progress">
-                <div class="skill-bar" style="width: 85%"></div>
-            </div>
-            <span class="skill-percentage">85%</span>
-        </div>
-
-        <div class="skill-card">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg">
-            <p>Django</p>
-            <div class="skill-progress">
-                <div class="skill-bar" style="width: 80%"></div>
-            </div>
-            <span class="skill-percentage">80%</span>
-        </div>
-
-        <div class="skill-card">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nestjs/nestjs-original.svg">
-            <p>NestJS</p>
-            <div class="skill-progress">
-                <div class="skill-bar" style="width: 70%"></div>
-            </div>
-            <span class="skill-percentage">70%</span>
-        </div>
-
-        <div class="skill-card">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg">
-            <p>HTML</p>
-            <div class="skill-progress">
-                <div class="skill-bar" style="width: 90%"></div>
-            </div>
-            <span class="skill-percentage">90%</span>
-        </div>
-
-        <div class="skill-card">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg">
-            <p>React.js</p>
-            <div class="skill-progress">
-                <div class="skill-bar" style="width: 75%"></div>
-            </div>
-            <span class="skill-percentage">75%</span>
-        </div>
-
-        <div class="skill-card">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg">
-            <p>CSS</p>
-            <div class="skill-progress">
-                <div class="skill-bar" style="width: 85%"></div>
-            </div>
-            <span class="skill-percentage">85%</span>
-        </div>
-
-        <div class="skill-card">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vitejs/vitejs-original.svg">
-            <p>Vite</p>
-            <div class="skill-progress">
-                <div class="skill-bar" style="width: 75%"></div>
-            </div>
-            <span class="skill-percentage">75%</span>
-        </div>
-
-        <!-- IT Support Tools -->
-<div class="skill-card">
-    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/teamviewer.svg" style="width:60px; height:60px;">
-    <p>TeamViewer</p>
-    <div class="skill-progress">
-        <div class="skill-bar" style="width: 80%"></div>
-    </div>
-    <span class="skill-percentage">80%</span>
-</div>
-
-
-<div class="skill-card">
-    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/anydesk.svg" style="width:60px; height:60px;">
-    <p>AnyDesk</p>
-    <div class="skill-progress">
-        <div class="skill-bar" style="width: 75%"></div>
-    </div>
-    <span class="skill-percentage">75%</span>
-</div>
-
-<div class="skill-card">
-    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/wireshark.svg" style="width:60px; height:60px;">
-    <p>Wireshark</p>
-    <div class="skill-progress">
-        <div class="skill-bar" style="width: 65%"></div>
-    </div>
-    <span class="skill-percentage">65%</span>
-</div>
-
-
-</section>
-
-                    <h5 class="text-center"
-                        style="font-family: 'Times New Roman', Times, serif; text-decoration: underline;">
-                        MY SOFT SKILLS
-                    </h5>
-
-                    <div class="soft-skills-grid">
-                        <div class="soft-skill-card">
-                            <i class="bi bi-eye"></i>
-                            <p>Attention to Detail</p>
-                            <div class="skill-progress">
-                                <div class="skill-bar" style="width: 90%"></div>
+                            <div class="edu-list">
+                                <div class="edu-item edu-wide">
+                                    <i class="bi bi-mortarboard"></i>
+                                    <div>
+                                        <strong>BSc. Information Technology</strong>
+                                        <span>Victoria University, Kampala &middot; Currently pursuing</span>
+                                    </div>
+                                </div>
+                                <div class="edu-item">
+                                    <i class="bi bi-code-slash"></i>
+                                    <div>
+                                        <strong>Advanced Certificate in Software Engineering</strong>
+                                        <span>Refactory Academy, Uganda</span>
+                                    </div>
+                                </div>
+                                <div class="edu-item">
+                                    <i class="bi bi-laptop"></i>
+                                    <div>
+                                        <strong>Certificate in Software Engineering</strong>
+                                        <span>Refactory Academy, Uganda</span>
+                                    </div>
+                                </div>
+                                <div class="edu-item">
+                                    <i class="bi bi-award"></i>
+                                    <div>
+                                        <strong>IT Support Certification</strong>
+                                        <span>Cisco Networking Academy</span>
+                                    </div>
+                                </div>
+                                <div class="edu-item">
+                                    <i class="bi bi-book"></i>
+                                    <div>
+                                        <strong>UACE</strong>
+                                        <span>Mentor Secondary School, Lira</span>
+                                    </div>
+                                </div>
                             </div>
-                            <span class="skill-percentage">90%</span>
-                        </div>
-                        <div class="soft-skill-card">
-                            <i class="bi bi-clock"></i>
-                            <p>Time Management</p>
-                            <div class="skill-progress">
-                                <div class="skill-bar" style="width: 85%"></div>
-                            </div>
-                            <span class="skill-percentage">85%</span>
-                        </div>
-                        <div class="soft-skill-card">
-                            <i class="bi bi-lightbulb"></i>
-                            <p>Problem Solving</p>
-                            <div class="skill-progress">
-                                <div class="skill-bar" style="width: 88%"></div>
-                            </div>
-                            <span class="skill-percentage">88%</span>
-                        </div>
-                        <div class="soft-skill-card">
-                            <i class="bi bi-people"></i>
-                            <p>Teamwork</p>
-                            <div class="skill-progress">
-                                <div class="skill-bar" style="width: 92%"></div>
-                            </div>
-                            <span class="skill-percentage">92%</span>
-                        </div>
-                        <div class="soft-skill-card">
-                            <i class="bi bi-chat"></i>
-                            <p>Communication</p>
-                            <div class="skill-progress">
-                                <div class="skill-bar" style="width: 87%"></div>
-                            </div>
-                            <span class="skill-percentage">87%</span>
                         </div>
                     </div>
 
                 </div>
-
-            </div>
-
-        </div>
-        <!-- Row End -->
-
-    </div>
-</section>
-<!-- End About Section -->
-
-
-                            <!-- <h5 class="text-center"
-                                style="font-family: 'Times New Roman', Times, serif; text-decoration: underline;">MY
-                                SOFT SKILLS</h5> -->
-                            <!-- <ul>
-                                <li><i class="bi bi-check2-all"></i>Paying attention to details</li>
-                                <li><i class="bi bi-check2-all"></i>Time management and prioritization</li>
-                                <li><i class="bi bi-check2-all"></i>Problem-solving skills</li>
-                                <li><i class="bi bi-check2-all"></i>Teamwork and collaboration</li>
-                                <li><i class="bi bi-check2-all"></i>Communication skills</li>
-                            </ul> -->
-
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </section><!-- End About Section -->
+
+        <!-- ======= Skills Section ======= -->
+        <section id="skills" class="skills">
+            <div class="container" data-aos="fade-up">
+
+                <div class="section-header">
+                    <h2>My Skills</h2>
+                    <p>Tools and strengths <span>I bring to every project</span>.</p>
+                </div>
+
+                <div class="skills-group">
+                    <h3 class="skills-group-title">Technical Skills</h3>
+                    <div class="skills-grid">
+
+                        <div class="skill-card">
+                            <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt=""></div>
+                            <p>Python</p>
+                            <div class="skill-progress"><div class="skill-bar" style="width: 85%"></div></div>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+
+                        <div class="skill-card">
+                            <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt=""></div>
+                            <p>Django</p>
+                            <div class="skill-progress"><div class="skill-bar" style="width: 80%"></div></div>
+                            <span class="skill-percentage">80%</span>
+                        </div>
+
+                        <div class="skill-card">
+                            <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nestjs/nestjs-original.svg" alt=""></div>
+                            <p>NestJS</p>
+                            <div class="skill-progress"><div class="skill-bar" style="width: 70%"></div></div>
+                            <span class="skill-percentage">70%</span>
+                        </div>
+
+                        <div class="skill-card">
+                            <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt=""></div>
+                            <p>HTML</p>
+                            <div class="skill-progress"><div class="skill-bar" style="width: 90%"></div></div>
+                            <span class="skill-percentage">90%</span>
+                        </div>
+
+                        <div class="skill-card">
+                            <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt=""></div>
+                            <p>CSS</p>
+                            <div class="skill-progress"><div class="skill-bar" style="width: 85%"></div></div>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+
+                        <div class="skill-card">
+                            <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt=""></div>
+                            <p>React.js</p>
+                            <div class="skill-progress"><div class="skill-bar" style="width: 75%"></div></div>
+                            <span class="skill-percentage">75%</span>
+                        </div>
+
+                        <div class="skill-card">
+                            <div class="skill-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vitejs/vitejs-original.svg" alt=""></div>
+                            <p>Vite</p>
+                            <div class="skill-progress"><div class="skill-bar" style="width: 75%"></div></div>
+                            <span class="skill-percentage">75%</span>
+                        </div>
+
+                        <div class="skill-card">
+                            <div class="skill-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/teamviewer.svg" alt=""></div>
+                            <p>TeamViewer</p>
+                            <div class="skill-progress"><div class="skill-bar" style="width: 80%"></div></div>
+                            <span class="skill-percentage">80%</span>
+                        </div>
+
+                        <div class="skill-card">
+                            <div class="skill-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/anydesk.svg" alt=""></div>
+                            <p>AnyDesk</p>
+                            <div class="skill-progress"><div class="skill-bar" style="width: 75%"></div></div>
+                            <span class="skill-percentage">75%</span>
+                        </div>
+
+                        <div class="skill-card">
+                            <div class="skill-icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/wireshark.svg" alt=""></div>
+                            <p>Wireshark</p>
+                            <div class="skill-progress"><div class="skill-bar" style="width: 65%"></div></div>
+                            <span class="skill-percentage">65%</span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="skills-group">
+                    <h3 class="skills-group-title">Soft Skills</h3>
+                    <div class="skills-grid">
+
+                        <div class="skill-card soft">
+                            <div class="skill-icon"><i class="bi bi-eye"></i></div>
+                            <p>Attention to Detail</p>
+                            <div class="skill-progress"><div class="skill-bar" style="width: 90%"></div></div>
+                            <span class="skill-percentage">90%</span>
+                        </div>
+
+                        <div class="skill-card soft">
+                            <div class="skill-icon"><i class="bi bi-clock"></i></div>
+                            <p>Time Management</p>
+                            <div class="skill-progress"><div class="skill-bar" style="width: 85%"></div></div>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+
+                        <div class="skill-card soft">
+                            <div class="skill-icon"><i class="bi bi-lightbulb"></i></div>
+                            <p>Problem Solving</p>
+                            <div class="skill-progress"><div class="skill-bar" style="width: 88%"></div></div>
+                            <span class="skill-percentage">88%</span>
+                        </div>
+
+                        <div class="skill-card soft">
+                            <div class="skill-icon"><i class="bi bi-people"></i></div>
+                            <p>Teamwork</p>
+                            <div class="skill-progress"><div class="skill-bar" style="width: 92%"></div></div>
+                            <span class="skill-percentage">92%</span>
+                        </div>
+
+                        <div class="skill-card soft">
+                            <div class="skill-icon"><i class="bi bi-chat"></i></div>
+                            <p>Communication</p>
+                            <div class="skill-progress"><div class="skill-bar" style="width: 87%"></div></div>
+                            <span class="skill-percentage">87%</span>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section><!-- End Skills Section -->
 
         <section id="why-us" class="projects-modern">
 
@@ -1342,7 +562,7 @@
                 <br>
                 <div>
                     <button type="submit"
-                        style="border: 2px solid rgb(213, 149, 160);margin-bottom: 20px;background-color: rgb(213, 149, 160);border-radius: 10px; width: 150px;height: 50px; color: white;">Send
+                        style="border: 2px solid #ff9a4d;margin-bottom: 20px;background-color: #ff9a4d;border-radius: 10px; width: 150px;height: 50px; color: white;">Send
                         Message</button>
                 </div>
             </form><!-- End Contact Form -->
